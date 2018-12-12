@@ -1,4 +1,1 @@
-export * from "./SuccessNotification";
-export * from "./InfoNotification";
-export * from "./WarningNotification";
-export * from "./ErrorNotification";
+export { NotificationWrapper as Notification } from "./NotificationWrapper";

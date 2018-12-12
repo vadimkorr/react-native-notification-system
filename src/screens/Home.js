@@ -1,11 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import {
-  SuccessNotification,
-  InfoNotification,
-  WarningNotification,
-  ErrorNotification
-} from "../components";
+import { Notification } from "../components";
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -22,25 +17,29 @@ export const Home = () => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.notification}>
-        <SuccessNotification
+        <Notification
+          type="success"
           title="Lorem ipsum dolor"
           message="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         />
       </View>
       <View style={styles.notification}>
-        <InfoNotification
+        <Notification
+          type="info"
           title="Lorem ipsum dolor"
           message="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         />
       </View>
       <View style={styles.notification}>
-        <WarningNotification
+        <Notification
+          type="warning"
           title="Lorem ipsum dolor"
           message="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         />
       </View>
       <View style={styles.notification}>
-        <ErrorNotification
+        <Notification
+          type="error"
           title="Lorem ipsum dolor"
           message="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         />

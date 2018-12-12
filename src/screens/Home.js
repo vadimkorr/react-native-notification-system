@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { Notifications } from "../components";
+import { Notifications, NotificationsStore } from "../components";
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -17,11 +17,13 @@ const styles = StyleSheet.create({
   }
 });
 
+const notificationsStore = new NotificationsStore();
+
 export const Home = () => {
   return (
     <View style={styles.mainContainer}>
       <Text style={styles.title}>react-native-notification-system</Text>
-      <Notifications />
+      <Notifications store={notificationsStore} />
     </View>
   );
 };

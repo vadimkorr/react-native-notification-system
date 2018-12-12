@@ -1,6 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { View, StyleSheet } from "react-native";
+import { observer } from "mobx-react";
 import { Notification } from "../Notification";
+import { NotificationsStore } from "../store";
 
 const styles = StyleSheet.create({
   notificationsContainer: {
@@ -10,53 +13,18 @@ const styles = StyleSheet.create({
   }
 });
 
-const testNotifications = [
-  {
-    id: "0",
-    type: "success",
-    title: "Lorem ipsum dolor",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    id: "2",
-    type: "info",
-    title: "Lorem ipsum dolor",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    id: "3",
-    type: "warning",
-    title: "Lorem ipsum dolor",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    id: "4",
-    type: "error",
-    title: "Lorem ipsum dolor",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  }
-];
-
+@observer
 export class Notifications extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      notifications: testNotifications
-    };
-  }
-
   onCloseNotification = closedNotification => {
-    this.setState({
-      notifications: this.state.notifications.filter(
-        notification => notification.id != closedNotification.id
-      )
-    });
+    const { store } = this.props;
+    store.remove(closedNotification);
   };
 
   render() {
+    const { store } = this.props;
     return (
       <View style={styles.notificationsContainer}>
-        {this.state.notifications.map((notification, index) => (
+        {store.notifications.map((notification, index) => (
           <View
             key={notification.id}
             style={{
@@ -77,3 +45,7 @@ export class Notifications extends React.Component {
     );
   }
 }
+
+Notifications.propTypes = {
+  store: PropTypes.instanceOf(NotificationsStore)
+};

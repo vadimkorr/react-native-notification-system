@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
+import PropTypes from "prop-types";
+import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
 const ICON_SIZE = 100;
@@ -45,5 +46,12 @@ export const makeNotification = (iconName, colorPrimary, colorAccent) => {
       </TouchableOpacity>
     );
   };
+
+  NotificationBase.propTypes = {
+    title: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+    onClosePress: PropTypes.func
+  };
+
   return NotificationBase;
 };

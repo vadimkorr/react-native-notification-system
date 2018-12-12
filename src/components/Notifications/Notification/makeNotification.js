@@ -7,7 +7,7 @@ const ICON_SIZE = 100;
 
 const styles = StyleSheet.create({
   mainContainer: {
-    width: 300,
+    width: 270,
     padding: 10,
     overflow: "hidden"
   },

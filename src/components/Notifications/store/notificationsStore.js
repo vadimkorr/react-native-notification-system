@@ -1,35 +1,12 @@
 import { observable, action, computed } from "mobx";
 
-const testNotifications = [
-  {
-    id: "0",
-    type: "success",
-    title: "Lorem ipsum dolor",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    id: "2",
-    type: "info",
-    title: "Lorem ipsum dolor",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    id: "3",
-    type: "warning",
-    title: "Lorem ipsum dolor",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    id: "4",
-    type: "error",
-    title: "Lorem ipsum dolor",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  }
-];
-
 export class NotificationsStore {
+  constructor(notifications) {
+    this._notifications = [...notifications];
+  }
+
   @observable
-  _notifications = [...testNotifications];
+  _notifications = [];
 
   @computed
   get notifications() {

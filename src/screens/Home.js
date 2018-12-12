@@ -22,7 +22,34 @@ const styles = StyleSheet.create({
   }
 });
 
-const notificationsStore = new NotificationsStore();
+const testNotifications = [
+  {
+    id: "0",
+    type: "success",
+    title: "Lorem ipsum dolor",
+    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+  {
+    id: "2",
+    type: "info",
+    title: "Lorem ipsum dolor",
+    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+  {
+    id: "3",
+    type: "warning",
+    title: "Lorem ipsum dolor",
+    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+  {
+    id: "4",
+    type: "error",
+    title: "Lorem ipsum dolor",
+    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  }
+];
+
+const notificationsStore = new NotificationsStore(testNotifications);
 
 export const Home = () => {
   return (

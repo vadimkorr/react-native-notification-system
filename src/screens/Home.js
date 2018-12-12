@@ -1,12 +1,16 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import { Notification } from "../components";
+import { View, Text, StyleSheet } from "react-native";
+import { Notifications } from "../components";
 
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
+  },
+  title: {
+    fontSize: 20,
+    color: "#d9d9d9"
   },
   notification: {
     marginBottom: 10
@@ -16,34 +20,8 @@ const styles = StyleSheet.create({
 export const Home = () => {
   return (
     <View style={styles.mainContainer}>
-      <View style={styles.notification}>
-        <Notification
-          type="success"
-          title="Lorem ipsum dolor"
-          message="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        />
-      </View>
-      <View style={styles.notification}>
-        <Notification
-          type="info"
-          title="Lorem ipsum dolor"
-          message="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        />
-      </View>
-      <View style={styles.notification}>
-        <Notification
-          type="warning"
-          title="Lorem ipsum dolor"
-          message="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        />
-      </View>
-      <View style={styles.notification}>
-        <Notification
-          type="error"
-          title="Lorem ipsum dolor"
-          message="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        />
-      </View>
+      <Text style={styles.title}>react-native-notification-system</Text>
+      <Notifications />
     </View>
   );
 };

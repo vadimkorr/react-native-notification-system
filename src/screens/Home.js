@@ -11,7 +11,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    color: "#d9d9d9"
+    color: "#afafaf"
+  },
+  description: {
+    fontSize: 17,
+    color: "#afafaf"
   },
   notificationControlsContainer: {
     position: "absolute",
@@ -55,6 +59,10 @@ export const Home = () => {
   return (
     <View style={styles.mainContainer}>
       <Text style={styles.title}>react-native-notification-system</Text>
+      <Text style={styles.description}>
+        (tap on notification to close it, use button controls to create
+        notifications of corresponding types)
+      </Text>
       <View style={styles.notificationControlsContainer}>
         <NotificationControls store={notificationsStore} />
       </View>

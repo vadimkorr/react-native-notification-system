@@ -30,75 +30,64 @@ const styles = StyleSheet.create({
 });
 
 export const makeNotification = (iconName, colorPrimary, colorAccent) => {
-  class NotificationBase extends React.Component {
-    constructor(props) {
-      super(props);
-      this._animated = new Animated.Value(0);
-    }
+  function NotificationBase(props) {
+    const { title, message, onClosePress } = props;
+    const [animated] = React.useState(new Animated.Value(0));
 
-    componentDidMount() {
-      Animated.timing(this._animated, {
+    React.useEffect(() => {
+      Animated.timing(animated, {
         toValue: 1,
         duration: ANIMATION_DURATION
       }).start();
-    }
+    }, []);
 
-    onClosePress = () => {
-      const { onClosePress } = this.props;
-      if (onClosePress) {
-        Animated.timing(this._animated, {
-          toValue: 0,
-          duration: ANIMATION_DURATION
-        }).start(onClosePress);
-      }
-    };
-
-    render() {
-      const { title, message } = this.props;
-
-      const animatedStyles = [
-        {
-          opacity: this._animated,
-          height: this._animated.interpolate({
-            inputRange: [0, 1],
-            outputRange: [0, NOTIFICATION_HEIGHT],
-            extrapolate: "clamp"
-          }),
-          transform: [
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          if (onClosePress) {
+            Animated.timing(animated, {
+              toValue: 0,
+              duration: ANIMATION_DURATION
+            }).start(onClosePress);
+          }
+        }}
+      >
+        <Animated.View
+          style={[
             {
-              translateX: this._animated.interpolate({
+              opacity: animated,
+              height: animated.interpolate({
                 inputRange: [0, 1],
-                outputRange: [30, 0],
+                outputRange: [0, NOTIFICATION_HEIGHT],
                 extrapolate: "clamp"
-              })
-            }
-          ]
-        }
-      ];
-
-      return (
-        <TouchableOpacity onPress={this.onClosePress}>
-          <Animated.View
-            style={[
-              animatedStyles,
-              styles.mainContainer,
-              { backgroundColor: colorPrimary }
-            ]}
-          >
-            <FontAwesome
-              style={styles.icon}
-              name={iconName}
-              size={ICON_SIZE}
-              color={colorAccent}
-            />
-            <Text style={[styles.title, { color: colorAccent }]}>{title}</Text>
-            <Text style={[styles.message, { color: colorAccent }]}>
-              {message}
-            </Text>
-          </Animated.View>
-        </TouchableOpacity>
-      );
-    }
+              }),
+              transform: [
+                {
+                  translateX: animated.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [30, 0],
+                    extrapolate: "clamp"
+                  })
+                }
+              ]
+            },
+            styles.mainContainer,
+            { backgroundColor: colorPrimary }
+          ]}
+        >
+          <FontAwesome
+            style={styles.icon}
+            name={iconName}
+            size={ICON_SIZE}
+            color={colorAccent}
+          />
+          <Text style={[styles.title, { color: colorAccent }]}>{title}</Text>
+          <Text style={[styles.message, { color: colorAccent }]}>
+            {message}
+          </Text>
+        </Animated.View>
+      </TouchableOpacity>
+    );
   }
 
   NotificationBase.propTypes = {

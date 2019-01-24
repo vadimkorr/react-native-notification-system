@@ -1,7 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { View, StyleSheet } from "react-native";
-import { Button, NotificationsStore } from "../../components";
+import {
+  Button,
+  NotificationsStore,
+  withNotifications
+} from "../../components";
 
 const styles = StyleSheet.create({
   buttonControl: {
@@ -42,7 +46,7 @@ const addErrorNotification = notificationsStore => {
   });
 };
 
-export const NotificationControls = props => {
+const NotificationControlsInner = props => {
   const { store } = props;
   return (
     <React.Fragment>
@@ -89,6 +93,10 @@ export const NotificationControls = props => {
   );
 };
 
-NotificationControls.propType = {
+NotificationControlsInner.propType = {
   store: PropTypes.instanceOf(NotificationsStore).isRequired
 };
+
+export const NotificationControls = withNotifications(
+  NotificationControlsInner
+);

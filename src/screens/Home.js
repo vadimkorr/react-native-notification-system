@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { Notifications, NotificationsStore } from "../components";
+import { Notifications } from "../components";
 import { NotificationControls } from "./shared";
 
 const styles = StyleSheet.create({
@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 17,
-    color: "#afafaf"
+    color: "#afafaf",
+    textAlign: "center"
   },
   notificationControlsContainer: {
     position: "absolute",
@@ -26,35 +27,6 @@ const styles = StyleSheet.create({
   }
 });
 
-const testNotifications = [
-  {
-    id: "0",
-    type: "success",
-    title: "Lorem ipsum dolor",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    id: "2",
-    type: "info",
-    title: "Lorem ipsum dolor",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    id: "3",
-    type: "warning",
-    title: "Lorem ipsum dolor",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  },
-  {
-    id: "4",
-    type: "error",
-    title: "Lorem ipsum dolor",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  }
-];
-
-const notificationsStore = new NotificationsStore(testNotifications);
-
 export const Home = () => {
   return (
     <View style={styles.mainContainer}>
@@ -64,9 +36,9 @@ export const Home = () => {
         notifications of corresponding types)
       </Text>
       <View style={styles.notificationControlsContainer}>
-        <NotificationControls store={notificationsStore} />
+        <NotificationControls />
       </View>
-      <Notifications store={notificationsStore} />
+      <Notifications />
     </View>
   );
 };

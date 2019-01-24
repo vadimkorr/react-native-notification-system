@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { View, StyleSheet } from "react-native";
 import { observer } from "mobx-react";
 import { Notification } from "../Notification";
-import { NotificationsStore } from "../store";
+import { NotificationsStore, withNotifications } from "../store";
 
 const styles = StyleSheet.create({
   notificationsContainer: {
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 });
 
 @observer
-export class Notifications extends React.Component {
+class NotificationsInner extends React.Component {
   onCloseNotification = closedNotification => {
     const { store } = this.props;
     store.remove(closedNotification);
@@ -46,6 +46,8 @@ export class Notifications extends React.Component {
   }
 }
 
-Notifications.propTypes = {
+NotificationsInner.propTypes = {
   store: PropTypes.instanceOf(NotificationsStore)
 };
+
+export const Notifications = withNotifications(NotificationsInner);

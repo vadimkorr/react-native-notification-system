@@ -5,7 +5,7 @@ import { FontAwesome } from "@expo/vector-icons";
 
 const ICON_SIZE = 100;
 const ANIMATION_DURATION = 150;
-const NOTIFICATION_HEIGHT = 150;
+const NOTIFICATION_HEIGHT = 120;
 
 const styles = StyleSheet.create({
   mainContainer: {

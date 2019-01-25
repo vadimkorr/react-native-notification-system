@@ -6,7 +6,8 @@ import { NotificationControls } from "./shared";
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    justifyContent: "center",
+    paddingTop: 30,
+    justifyContent: "flex-start",
     alignItems: "center"
   },
   title: {
@@ -20,10 +21,13 @@ const styles = StyleSheet.create({
   },
   notificationControlsContainer: {
     position: "absolute",
-    marginTop: 30,
-    marginRight: 5,
-    top: 0,
-    right: 0
+    bottom: 10,
+    right: 10
+  },
+  notificationsContainer: {
+    position: "absolute",
+    bottom: 10,
+    left: 10
   }
 });
 
@@ -38,7 +42,9 @@ export const Home = () => {
       <View style={styles.notificationControlsContainer}>
         <NotificationControls />
       </View>
-      <Notifications />
+      <View style={styles.notificationsContainer}>
+        <Notifications />
+      </View>
     </View>
   );
 };

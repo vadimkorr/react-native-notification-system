@@ -7,6 +7,42 @@ import {
   withNotifications
 } from "../../components";
 
+const createSuccessNotification = (title, message) => {
+  return {
+    id: Date.now(),
+    type: "success",
+    title,
+    message
+  };
+};
+
+const createInfoNotification = (title, message) => {
+  return {
+    id: Date.now(),
+    type: "info",
+    title,
+    message
+  };
+};
+
+const createWarningNotification = (title, message) => {
+  return {
+    id: Date.now(),
+    type: "warning",
+    title,
+    message
+  };
+};
+
+const createErrorNotification = (title, message) => {
+  return {
+    id: Date.now(),
+    type: "error",
+    title,
+    message
+  };
+};
+
 const controls = [
   {
     key: "create-success-notification-button",
@@ -14,12 +50,12 @@ const controls = [
     colorPrimary: "#dff0d8",
     colorAccent: "#3c763d",
     onPress: store => {
-      store.add({
-        id: Date.now(),
-        type: "success",
-        title: "Lorem ipsum dolor",
-        message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      });
+      store.add(
+        createSuccessNotification(
+          "Lorem ipsum dolor",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        )
+      );
     }
   },
   {
@@ -28,12 +64,12 @@ const controls = [
     colorPrimary: "#d9edf7",
     colorAccent: "#31708f",
     onPress: store => {
-      store.add({
-        id: Date.now(),
-        type: "info",
-        title: "Lorem ipsum dolor",
-        message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      });
+      store.add(
+        createInfoNotification(
+          "Lorem ipsum dolor",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        )
+      );
     }
   },
   {
@@ -42,12 +78,12 @@ const controls = [
     colorPrimary: "#fcf8e3",
     colorAccent: "#8a6d3b",
     onPress: store => {
-      store.add({
-        id: Date.now(),
-        type: "warning",
-        title: "Lorem ipsum dolor",
-        message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      });
+      store.add(
+        createWarningNotification(
+          "Lorem ipsum dolor",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        )
+      );
     }
   },
   {
@@ -56,12 +92,12 @@ const controls = [
     colorPrimary: "#f2dede",
     colorAccent: "#a94442",
     onPress: store => {
-      store.add({
-        id: Date.now(),
-        type: "error",
-        title: "Lorem ipsum dolor",
-        message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      });
+      store.add(
+        createErrorNotification(
+          "Lorem ipsum dolor",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        )
+      );
     }
   }
 ];

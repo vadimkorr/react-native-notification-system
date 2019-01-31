@@ -2,25 +2,20 @@ import { observable, action, computed } from "mobx";
 
 export class NotificationsStore {
   constructor(notifications) {
-    this._notifications = [...notifications];
+    this.notifications = [...notifications];
   }
 
   @observable
-  _notifications = [];
-
-  @computed
-  get notifications() {
-    return this._notifications;
-  }
+  notifications = [];
 
   @action
   add(notification) {
-    this._notifications = [...this._notifications, notification];
+    this.notifications.push(notification);
   }
 
   @action
   remove(removedNotification) {
-    this._notifications = this._notifications.filter(
+    this.notifications = this.notifications.filter(
       notification => notification.id !== removedNotification.id
     );
   }

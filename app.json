@@ -1,13 +1,10 @@
 {
   "expo": {
-    "name": "notification-system-example",
-    "slug": "notification-system-example",
+    "name": "react-native-notification-system",
+    "slug": "react-native-notification-system",
     "privacy": "public",
-    "sdkVersion": "31.0.0",
-    "platforms": [
-      "ios",
-      "android"
-    ],
+    "sdkVersion": "34.0.0",
+    "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -19,9 +16,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     }

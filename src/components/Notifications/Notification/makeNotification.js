@@ -13,9 +13,12 @@ const styles = StyleSheet.create({
     padding: 10,
     overflow: "hidden",
     shadowColor: "#000",
-    shadowOpacity: 1,
-    elevation: 10,
-    borderRadius: 7
+    shadowOffset: {
+      width: 0,
+      height: 5
+    },
+    shadowOpacity: 0.4,
+    elevation: 10
   },
   icon: {
     position: "absolute",

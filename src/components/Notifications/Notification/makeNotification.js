@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     width: 270,
     padding: 10,
     overflow: "hidden",
+    borderRadius: 7,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

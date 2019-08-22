@@ -47,13 +47,13 @@ const controls = [
   {
     key: "create-success-notification-button",
     iconName: "check",
-    colorPrimary: "#dff0d8",
+    colorPrimary: "#cbf0c4",
     colorAccent: "#3c763d",
     onPress: store => {
       store.add(
         createSuccessNotification(
-          "Lorem ipsum dolor",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          "Success",
+          "This message tells that everything goes fine."
         )
       );
     }
@@ -61,13 +61,13 @@ const controls = [
   {
     key: "create-info-notification-button",
     iconName: "info",
-    colorPrimary: "#d9edf7",
+    colorPrimary: "#b1edf7",
     colorAccent: "#31708f",
     onPress: store => {
       store.add(
         createInfoNotification(
-          "Lorem ipsum dolor",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          "Information",
+          "This message presents information that the user might find helpful."
         )
       );
     }
@@ -75,13 +75,13 @@ const controls = [
   {
     key: "create-warning-notification-button",
     iconName: "exclamation",
-    colorPrimary: "#fcf8e3",
+    colorPrimary: "#fcf8bb",
     colorAccent: "#8a6d3b",
     onPress: store => {
       store.add(
         createWarningNotification(
-          "Lorem ipsum dolor",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          "Warning",
+          "This message warn users about important actions they need to take."
         )
       );
     }
@@ -89,13 +89,13 @@ const controls = [
   {
     key: "create-error-notification-button",
     iconName: "times",
-    colorPrimary: "#f2dede",
+    colorPrimary: "#f2c8c8",
     colorAccent: "#a94442",
     onPress: store => {
       store.add(
         createErrorNotification(
-          "Lorem ipsum dolor",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          "Error",
+          "This message informs users that a problem occurred."
         )
       );
     }

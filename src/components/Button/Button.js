@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
 const BUTTON_SIZE = 60;
@@ -11,18 +11,24 @@ const styles = StyleSheet.create({
     height: BUTTON_SIZE,
     borderRadius: BUTTON_SIZE / 2,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 1,
+    elevation: 10
   }
 });
 
 export const Button = props => {
   const { iconName, colorPrimary, colorAccent, onPress } = props;
   return (
-    <TouchableOpacity
-      style={[styles.mainContainer, { backgroundColor: colorPrimary }]}
-      onPress={onPress}
-    >
-      <FontAwesome name={iconName} size={BUTTON_SIZE / 2} color={colorAccent} />
+    <TouchableOpacity onPress={onPress}>
+      <View style={[styles.mainContainer, { backgroundColor: colorPrimary }]}>
+        <FontAwesome
+          name={iconName}
+          size={BUTTON_SIZE / 2}
+          color={colorAccent}
+        />
+      </View>
     </TouchableOpacity>
   );
 };

@@ -6,26 +6,26 @@ const testNotifications = [
   {
     id: "0",
     type: "success",
-    title: "Lorem ipsum dolor",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    title: "Success",
+    message: "This message tells that everything goes fine."
   },
   {
     id: "2",
     type: "info",
-    title: "Lorem ipsum dolor",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    title: "Information",
+    message: "This message presents information that the user might find helpful."
   },
   {
     id: "3",
     type: "warning",
-    title: "Lorem ipsum dolor",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    title: "Warning",
+    message: "This message warn users about important actions they need to take."
   },
   {
     id: "4",
     type: "error",
-    title: "Lorem ipsum dolor",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    title: "Error",
+    message: "This message informs users that a problem occurred."
   }
 ];
 const notificationsStore = new NotificationsStore(testNotifications);

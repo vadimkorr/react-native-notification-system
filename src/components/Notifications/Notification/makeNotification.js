@@ -3,29 +3,33 @@ import PropTypes from "prop-types";
 import { StyleSheet, TouchableOpacity, Text, Animated } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
-const ICON_SIZE = 100;
-const ANIMATION_DURATION = 150;
-const NOTIFICATION_HEIGHT = 120;
+const ICON_SQUARE_SIZE = 100;
+const ANIMATION_DURATION_MS = 150;
+const NOTIFICATION_HEIGHT = 100;
 
 const styles = StyleSheet.create({
   mainContainer: {
     width: 270,
     padding: 10,
-    overflow: "hidden"
+    overflow: "hidden",
+    shadowColor: "#000",
+    shadowOpacity: 1,
+    elevation: 10,
+    borderRadius: 7
   },
   icon: {
     position: "absolute",
-    right: -ICON_SIZE / 5,
-    bottom: -ICON_SIZE / 5,
+    right: -ICON_SQUARE_SIZE / 5,
+    bottom: -ICON_SQUARE_SIZE / 5,
     opacity: 0.2
   },
   title: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "bold",
     marginBottom: 5
   },
   message: {
-    fontSize: 17
+    fontSize: 15
   }
 });
 
@@ -37,7 +41,7 @@ export const makeNotification = (iconName, colorPrimary, colorAccent) => {
     React.useEffect(() => {
       Animated.timing(animated, {
         toValue: 1,
-        duration: ANIMATION_DURATION
+        duration: ANIMATION_DURATION_MS
       }).start();
     }, []);
 
@@ -47,7 +51,7 @@ export const makeNotification = (iconName, colorPrimary, colorAccent) => {
           if (onClosePress) {
             Animated.timing(animated, {
               toValue: 0,
-              duration: ANIMATION_DURATION
+              duration: ANIMATION_DURATION_MS
             }).start(onClosePress);
           }
         }}
@@ -78,7 +82,7 @@ export const makeNotification = (iconName, colorPrimary, colorAccent) => {
           <FontAwesome
             style={styles.icon}
             name={iconName}
-            size={ICON_SIZE}
+            size={ICON_SQUARE_SIZE}
             color={colorAccent}
           />
           <Text style={[styles.title, { color: colorAccent }]}>{title}</Text>

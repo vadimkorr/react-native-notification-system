@@ -13,7 +13,7 @@ const NotificationsInner = observer(props => {
         <View
           key={notification.id}
           style={{
-            marginTop: index !== 0 ? 10 : 0
+            marginTop: index !== 0 ? 15 : 0
           }}
         >
           <Notification

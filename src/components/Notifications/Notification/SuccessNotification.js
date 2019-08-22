@@ -2,6 +2,6 @@ import { makeNotification } from "./makeNotification";
 
 export const SuccessNotification = makeNotification(
   "check-circle",
-  "#dff0d8",
+  "#cbf0c4",
   "#3c763d"
 );
